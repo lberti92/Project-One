@@ -13,7 +13,11 @@ $.ajax({
 
 
 // set up API for Edamam
-var edamamQueryURL = "https://api.edamam.com/api/food-database/parser?ingr=red%20apple&app_id={awesome}&app_key={e4946987}"
+
+var edamamSearchResults = $(this).attr("data-name");
+
+var edamamQueryURL = "https://api.edamam.com/search?q=" + edamamSearchResults + "&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
+
 
 $.ajax({
     url: edamamQueryURL,
