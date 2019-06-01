@@ -1,5 +1,6 @@
 // set up API for Edamam
-var edamamQueryURL = "https://api.edamam.com/api/food-database/parser?ingr=red%20apple&app_id={awesome}&app_key={e4946987}"
+var edamamSearch = $(this).attr("data-name");
+var edamamQueryURL = "https://api.edamam.com/api/food-database/parser?cuisineType=" + edamamSearch + "&app_id={awesome}&app_key={e4946987}";
 
 $.ajax({
     url: edamamqueryURL,
