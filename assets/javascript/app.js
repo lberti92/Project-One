@@ -1,11 +1,4 @@
-// take in user input through zip code, then use google geo coder it and pass it in for location
 
-// var zomatoURL = "https://developers.zomato.com/api/v2.1/search+cuisine+"+ cuisne + "&api_key=5f7e180716b2eb861d47aa1baa40e686=5"
-
-// $.ajax({
-//     url: queryURL, 
-//     method: "GET"
-// })
 
 
 var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=1901+East+Asbury,+Denver,+CO&key=AIzaSyBr1UF29gLIRNBbxHQG3ElsfeB0RV_dufg"
@@ -19,3 +12,18 @@ $.ajax({
 });
 
 
+// set up API for Edamam
+var edamamQueryURL = "https://api.edamam.com/api/food-database/parser?ingr=red%20apple&app_id={awesome}&app_key={e4946987}"
+
+$.ajax({
+    url: edamamQueryURL,
+    method: "GET"
+}).then(function (response) {
+    console.log(response);
+});
+
+// get summary view of 5 results rendering
+
+// create button with jQuery to show detail of each result
+
+// show detail on button submit in container of detail view
