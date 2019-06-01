@@ -1,3 +1,17 @@
+
+
+
+var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=1901+East+Asbury,+Denver,+CO&key=AIzaSyBr1UF29gLIRNBbxHQG3ElsfeB0RV_dufg"
+
+$.ajax({
+    url: geoURL,
+    method: "GET"
+})
+.then(function (response) {
+    console.log(response)
+});
+
+
 // set up API for Edamam
 
 var edamamSearchResults = $(this).attr("data-name");
