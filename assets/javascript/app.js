@@ -1,15 +1,14 @@
 
+
 var geoAPI = "AIzaSyBr1UF29gLIRNBbxHQG3ElsfeB0RV_dufg";
 var geoAPI2 = "AIzaSyAoCyFHVjRHTcxhvoWxkgFC7G6fpCXn2-I";
 var address = 0;
 
 var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=1901+East+Asbury,+Denver,+CO&key=" + geoAPI2;
- 
-
 
 $.ajax({
     url: geoURL,
-    method: "GET"
+    method: "GET",
 })
     .then(function (response) {
         console.log(response)
@@ -63,39 +62,45 @@ $.ajax({
                 console.log("restaurant lng " + lon);
                 console.log("restaurant cruisine " + selected);
             })
-        
 
-                // All have been resolved (or rejected), do your thing
-              
-            
+
+            // All have been resolved (or rejected), do your thing
+
+
             // After submit button has been clicked and we have received the "selected id" then 
             //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
-            var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + selected;
+            var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + 150;
             $.ajax({
                 url: restaurantQuery,
                 method: "GET",
+                async: false,
                 beforeSend: function (request) {
                     request.setRequestHeader("user-key", key);
                 },
             }).then(function (response) {
                 console.log(response);
+                console.log(response.restaurants[0].restaurant.name);
+                console.log(response.restaurants[1].restaurant.name);
+                console.log(response.restaurants[2].restaurant.name);
+                console.log(response.restaurants[3].restaurant.name);
+                console.log(response.restaurants[4].restaurant.name);
             });
         });
     });
 
 
 // set up API for Edamam
-// var edamamSearchResults = $(this).attr("data-name");
+var edamamSearchResults = $(this).attr("data-name");
 
-// var edamamQueryURL = "https://api.edamam.com/search?q=" + edamamSearchResults + "&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
+var edamamQueryURL = "https://api.edamam.com/search?q=" + edamamSearchResults + "&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
 
 
-// $.ajax({
-//     url: edamamQueryURL,
-//     method: "GET"
-// }).then(function (response) {
-//     console.log(response);
-// });
+$.ajax({
+    url: edamamQueryURL,
+    method: "GET"
+}).then(function (response) {
+    console.log(response);
+});
 
 // get summary view of 5 results rendering
 
