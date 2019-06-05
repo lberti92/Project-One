@@ -11,11 +11,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -29,7 +29,7 @@
 
 
 
-	<div class="container" >
+	<div class="container">
 		<!--//container for page content-->
 		<div class="row" id=searchDD>
 			<!--// row container for search drop down with cuisine types based on location search-->
@@ -46,16 +46,26 @@
 		<div class="row" id=detail>
 		</div>
 
-
 		<form>
-			<label htmlFor="cuisine-choice">cuisine name:</label>
+			<label htmlFor="cuisine-location"></label>
+			<input list="locations" id="cuisine-location" name="cuisine-location" className="form-control"
+				placeholder="Pick your location" />
+			<datalist id="locations"> </datalist>
+			<button type="submit" id="submitLoc" className="btn btn-success btn-block mt-2">Search</button>
+
+			<label htmlFor="cuisine-choice"></label>
 			<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
 				placeholder="Choose a cuisine" />
-			<datalist id="cuisines">
-
-			</datalist>
+			<datalist id="cuisines"></datalist>
 			<button type="submit" id="submit" className="btn btn-success btn-block mt-2">Search</button>
+
+
 		</form>
+
+	</div>
+
+
+
 	</div>
 	<!--//footer-->
 
