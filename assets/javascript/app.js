@@ -52,24 +52,25 @@ $.ajax({
                 event.preventDefault();
                 // grab the currently selected cuisine in human speak
                 var selected = $("#cuisine-choice").val();
+                console.log("selected " + selected);
                 // user the human speak cuisine to find the special Zomato cuisine number
                 // (hint: you'll need this for the final Zomato query!)
-                // alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
+                alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
                 // at this point in the game, you would now have both the lat/lon AND the cuisine id,
                 // which should be everything needed for the AJAX calls to either 1) search for 
                 // restaurants or 2) search for recipes 
                 console.log("restaurant lat " + lat);
                 console.log("restaurant lng " + lon);
                 console.log("restaurant cruisine " + selected);
-            })
-
+               
+           
 
             // All have been resolved (or rejected), do your thing
 
 
             // After submit button has been clicked and we have received the "selected id" then 
             //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
-            var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + 150;
+            var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + selected;
             $.ajax({
                 url: restaurantQuery,
                 method: "GET",
@@ -88,7 +89,7 @@ $.ajax({
         });
     });
 
-
+});
 // set up API for Edamam
 var edamamSearchResults = $(this).attr("data-name");
 
