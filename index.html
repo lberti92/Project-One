@@ -46,17 +46,26 @@
 			<div class="row" id=detail>
 			</div>
 
+		<form>
+			<label htmlFor="cuisine-location"></label>
+			<input list="locations" id="cuisine-location" name="cuisine-location" className="form-control"
+				placeholder="Pick your location" />
+			<datalist id="locations"> </datalist>
+			<button type="submit" id="submitLoc" className="btn btn-success btn-block mt-2">Search</button>
 
-			<form>
-				<label htmlFor="cuisine-choice">cuisine name:</label>
-				<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
-					placeholder="Choose a cuisine" />
-				<datalist id="cuisines">
+			<label htmlFor="cuisine-choice"></label>
+			<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
+				placeholder="Choose a cuisine" />
+			<datalist id="cuisines"></datalist>
+			<button type="submit" id="submit" className="btn btn-success btn-block mt-2">Search</button>
 
-				</datalist>
-				<button type="submit" id="submit" className="btn btn-success btn-block mt-2">Search</button>
-			</form>
-		</div>
+
+		</form>
+
+	</div>
+
+
+
 	</div>
 	<!--//footer-->
 
