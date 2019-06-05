@@ -82,11 +82,17 @@ $.ajax({
                     console.log(response);
 
                     //create a var array
-                    console.log(response.restaurants[0].restaurant.name);
-                    console.log(response.restaurants[1].restaurant.name);
-                    console.log(response.restaurants[2].restaurant.name);
-                    console.log(response.restaurants[3].restaurant.name);
-                    console.log(response.restaurants[4].restaurant.name);
+                    // console.log(response.restaurants[0].restaurant.name);
+                    // console.log(response.restaurants[0].restaurant.url);
+                    // console.log(response.restaurants[0].restaurant.location.address);
+
+                   
+                    for (var i = 0; i < response.restaurants.length; i++) {
+                 
+                        console.log(response.restaurants[i].restaurant.name);
+        
+                    };
+
                 });
 
                 var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
@@ -97,15 +103,11 @@ $.ajax({
                     method: "GET"
                 }).then(function (response) {
                     console.log(response);
+                    console.log(response.hits[1].recipe.label);
+                    console.log(response.hits[1].recipe.ingredients[1]);
+                    console.log(response.hits[1].recipe.url);
                 });
-
-                // get summary view of 5 results rendering
-
-                // create button with jQuery to show detail of each result
-
-                // show detail on button submit in container of detail view
             });
-
         });
 
     });
