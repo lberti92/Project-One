@@ -71,11 +71,7 @@ $.ajax({
                 console.log("restaurant lng " + lon);
                 console.log("restaurant cruisine " + selected);
 
-
-
                 // All have been resolved (or rejected), do your thing
-
-
                 // After submit button has been clicked and we have received the "selected id" then 
                 //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
                 var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + selected;
@@ -97,21 +93,35 @@ $.ajax({
                     console.log(response.restaurants[4].restaurant.name);
                 });
 
-                var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
+                // edamam search result from selected cuisine tab limited to 5 recipes
+                var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&to=5&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
 
-
+                // returns title (label), image and original recipe link (url)
                 $.ajax({
                     url: edamamQueryURL,
                     method: "GET"
                 }).then(function (response) {
                     console.log(response);
+                    // console.log(response.hits[0].recipe.label);
+                    // console.log(response.hits[0].recipe.image);
+                    // console.log(response.hits[0].recipe.url);
+                    // console.log(response.hits[1].recipe.label);
+                    // console.log(response.hits[1].recipe.image);
+                    // console.log(response.hits[1].recipe.url);
+                    // console.log(response.hits[2].recipe.label);
+                    // console.log(response.hits[2].recipe.image);
+                    // console.log(response.hits[2].recipe.url);
+                    // console.log(response.hits[3].recipe.label);
+                    // console.log(response.hits[3].recipe.image);
+                    // console.log(response.hits[3].recipe.url);
+                    // console.log(response.hits[4].recipe.label);
+                    // console.log(response.hits[4].recipe.image);
+                    // console.log(response.hits[4].recipe.url);
+                    for (var i = 0; i < response.hits.length; i++) {
+                        console.log(response.hits[i].recipe.label);
+                    }
                 });
 
-                // get summary view of 5 results rendering
-
-                // create button with jQuery to show detail of each result
-
-                // show detail on button submit in container of detail view
             });
 
         });
