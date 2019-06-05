@@ -86,11 +86,17 @@ $.ajax({
                     console.log(response);
 
                     //create a var array
-                    console.log(response.restaurants[0].restaurant.name);
-                    console.log(response.restaurants[1].restaurant.name);
-                    console.log(response.restaurants[2].restaurant.name);
-                    console.log(response.restaurants[3].restaurant.name);
-                    console.log(response.restaurants[4].restaurant.name);
+                    // console.log(response.restaurants[0].restaurant.name);
+                    // console.log(response.restaurants[0].restaurant.url);
+                    // console.log(response.restaurants[0].restaurant.location.address);
+
+                   
+                    for (var i = 0; i < response.restaurants.length; i++) {
+                 
+                        console.log(response.restaurants[i].restaurant.name);
+        
+                    };
+
                 });
 
                 // edamam search result from selected cuisine tab limited to 5 recipes
@@ -123,7 +129,6 @@ $.ajax({
                 });
 
             });
-
         });
 
     });
