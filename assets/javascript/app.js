@@ -18,7 +18,7 @@ $.ajax({
         var lon = response.results[0].geometry.location.lng;
 
         // ZOMATO
-        var key = "5f7e180716b2eb861d47aa1baa40e686"
+        var zomatoKey = "5f7e180716b2eb861d47aa1baa40e686"
 
         // // NOTE: you can only run the code below once you have the geocoded lat/lon from Google Geocoder...
         // // for that reason, you'll likely run this code in the .then for the geocoder API call:
@@ -33,7 +33,7 @@ $.ajax({
             url: cuisinesQuery,
             // the Zomato API is expecting the 'user-key' to be passed in as a header
             beforeSend: function (request) {
-                request.setRequestHeader("user-key", key);
+                request.setRequestHeader("user-key", zomatoKey);
             },
             // after the cuisine data comes back from the API...
         }).then(function (response) {
@@ -54,12 +54,13 @@ $.ajax({
                 console.log("selected " + selected);
                 // user the human speak cuisine to find the special Zomato cuisine number
                 // (hint: you'll need this for the final Zomato query!)
-                alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
+                // alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
                 // at this point in the game, you would now have both the lat/lon AND the cuisine id,
                 // which should be everything needed for the AJAX calls to either 1) search for 
                 // restaurants or 2) search for recipes 
                 console.log("restaurant lat " + lat);
                 console.log("restaurant lng " + lon);
+<<<<<<< HEAD
                 console.log("restaurant cruisine " + selected);                      
 
             // All have been resolved (or rejected), do your thing
@@ -84,22 +85,65 @@ $.ajax({
             });
         });
     });
+=======
+                console.log("restaurant cruisine " + selected);
+>>>>>>> b51a5204e115a20b7f690c8654d4581561357fdb
 
-});
-// set up API for Edamam
-var edamamSearchResults = $(this).attr("data-name");
 
-var edamamQueryURL = "https://api.edamam.com/search?q=" + edamamSearchResults + "&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
 
+<<<<<<< HEAD
 $.ajax({
     url: edamamQueryURL,
     method: "GET"
 }).then(function (response) {
     console.log(response);
 });
+=======
+                // All have been resolved (or rejected), do your thing
 
-// get summary view of 5 results rendering
+>>>>>>> b51a5204e115a20b7f690c8654d4581561357fdb
 
-// create button with jQuery to show detail of each result
+                // After submit button has been clicked and we have received the "selected id" then 
+                //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
+                var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + selected;
+                $.ajax({
+                    url: restaurantQuery,
+                    method: "GET",
+                    async: false,
+                    beforeSend: function (request) {
+                        request.setRequestHeader("user-key", zomatoKey);
+                    },
+                }).then(function (response) {
+                    console.log(response);
 
-// show detail on button submit in container of detail view
+                    //create a var array
+                    console.log(response.restaurants[0].restaurant.name);
+                    console.log(response.restaurants[1].restaurant.name);
+                    console.log(response.restaurants[2].restaurant.name);
+                    console.log(response.restaurants[3].restaurant.name);
+                    console.log(response.restaurants[4].restaurant.name);
+                });
+
+                var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
+
+
+                $.ajax({
+                    url: edamamQueryURL,
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+                });
+
+                // get summary view of 5 results rendering
+
+                // create button with jQuery to show detail of each result
+
+                // show detail on button submit in container of detail view
+            });
+
+        });
+
+    });
+
+
+
