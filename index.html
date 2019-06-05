@@ -11,11 +11,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -28,34 +28,35 @@
 	<!-- // header with site name -->
 
 
+	<div id="page">
+		<div class="container">
+			<!--//container for page content-->
+			<div class="row" id=searchDD>
+				<!--// row container for search drop down with cuisine types based on location search-->
 
-	<div class="container" >
-		<!--//container for page content-->
-		<div class="row" id=searchDD>
-			<!--// row container for search drop down with cuisine types based on location search-->
+			</div>
+			<div class="row" id=searchSum>
+				<!--// row container for results summary views-->
 
+			</div>
+			<div class="row" id=detail>
+				<!--// row container for displaying details if user selects an option-->
+
+			</div>
+			<div class="row" id=detail>
+			</div>
+
+
+			<form>
+				<label htmlFor="cuisine-choice">cuisine name:</label>
+				<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
+					placeholder="Choose a cuisine" />
+				<datalist id="cuisines">
+
+				</datalist>
+				<button type="submit" id="submit" className="btn btn-success btn-block mt-2">Search</button>
+			</form>
 		</div>
-		<div class="row" id=searchSum>
-			<!--// row container for results summary views-->
-
-		</div>
-		<div class="row" id=detail>
-			<!--// row container for displaying details if user selects an option-->
-
-		</div>
-		<div class="row" id=detail>
-		</div>
-
-
-		<form>
-			<label htmlFor="cuisine-choice">cuisine name:</label>
-			<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
-				placeholder="Choose a cuisine" />
-			<datalist id="cuisines">
-
-			</datalist>
-			<button type="submit" id="submit" className="btn btn-success btn-block mt-2">Search</button>
-		</form>
 	</div>
 	<!--//footer-->
 
