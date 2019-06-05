@@ -1,9 +1,18 @@
 
 
-var geoAPI = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
-var address = "1901 East Asbury, Denver, CO";
+var geoAPI = "AIzaSyBr1UF29gLIRNBbxHQG3ElsfeB0RV_dufg";
+var geoAPI2 = "AIzaSyAoCyFHVjRHTcxhvoWxkgFC7G6fpCXn2-I";
+// var address = $("#cuisine-location").val();
 
-var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI;
+// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+
+$("#submitLoc").on("click", function (event){
+    event.preventDefault();
+    var address = $("#cuisine-location").val();
+    console.log(address);
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+    
+
 
 $.ajax({
     url: geoURL,
@@ -123,6 +132,7 @@ $.ajax({
         });
 
     });
+});
 
 
 
