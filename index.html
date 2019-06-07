@@ -16,6 +16,9 @@
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+	<!--link to make materialize icons work-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -29,6 +32,17 @@
 
 
 	<div id="page">
+		<div class="navbar-fixed">
+			<nav>
+				<!-- <div class="nav-wrapper"> -->
+					<a href="#!" class="brand-logo">Cookit or Bookit</a>
+					<!-- <ul class="right hide-on-med-and-down">
+						<li><a href="sass.html">Sass</a></li>
+						<li><a href="badges.html">Components</a></li>
+					</ul> -->
+				<!-- </div> -->
+			</nav>
+		</div>
 		<div class="container">
 			<!--//container for page content-->
 			<div class="row" id=searchDD>
@@ -51,17 +65,20 @@
 			<form>
 				<label htmlFor="cuisine-location"></label>
 				<input list="locations" id="cuisine-location" name="cuisine-location" className="form-control"
-					placeholder="Pick your location" />
+					placeholder="Where will you be dining?" /><i class="material-icons">location_on</i>
 				<datalist id="locations"> </datalist>
-				<button type="submit" id="submitLoc" className="btn btn-success btn-block mt-2">Search</button>
+
+				<button class="btn waves-effect waves-light" type="submit" id="submitLoc"
+					className="btn btn-success btn-block mt-2">Search</button>
 
 				<div class="cuisines">
 					<label htmlFor="cuisine-choice"></label>
 					<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
-						class="show" class="hide" placeholder="Choose a cuisine" />
+						class="show" class="hide" placeholder="What are you hungry for?" /><i
+						class="material-icons">local_dining</i>
 					<datalist id="cuisines"></datalist>
-					<button type="submit" id="submit" className="btn btn-success btn-block mt-2" class="show"
-						class="hide">Search</button>
+					<button class="btn waves-effect waves-light" type="submit" id="submit"
+						className="btn btn-success btn-block mt-2" class="show" class="hide">Search</button>
 				</div>
 
 			</form>
@@ -71,7 +88,6 @@
 
 
 	</div>
-	<!--//footer-->
 
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
 
