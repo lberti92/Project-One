@@ -2,11 +2,11 @@
 
 var geoAPI = "AIzaSyBr1UF29gLIRNBbxHQG3ElsfeB0RV_dufg";
 var geoAPI2 = "AIzaSyAoCyFHVjRHTcxhvoWxkgFC7G6fpCXn2-I";
-var geoAPI3= "AIzaSyCwUotoEzIyv1ZHQWPqiLJ4PjShrUMGgdA";
-var geoAPI4= "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
+var geoAPI3 = "AIzaSyCwUotoEzIyv1ZHQWPqiLJ4PjShrUMGgdA";
+var geoAPI4 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 // var address = $("#cuisine-location").val();
 
-// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI3;
 
 $(document).ready(function () {
     $('.cuisines').hide();
@@ -103,6 +103,8 @@ $("#submitLoc").on("click", function (event) {
                             console.log(response.restaurants[i].restaurant.name);
 
                         };
+                        // $(".cuisines").toggle();
+                        // $(".locations").toggle();
 
                     });
 
@@ -116,7 +118,7 @@ $("#submitLoc").on("click", function (event) {
                     }).then(function (response) {
                         console.log(response);
                         for (var i = 0; i < response.hits.length; i++) {
-            
+
                             var recipeName = (response.hits[i].recipe.label);
                             var recipeImage = (response.hits[i].recipe.image);
                             var recipeURL = (response.hits[i].recipe.url);
@@ -125,27 +127,34 @@ $("#submitLoc").on("click", function (event) {
                             console.log(recipeImage);
                             console.log(recipeURL);
 
+
+
+                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
+
+
+                            var cardBody = $("<div>").addClass("card-body");
+                            var label = $("<h5>").addClass("card-title").text(recipeName);
+                            var url = $("<a>").addClass("btn brn-link").attr({ "href": recipeURL, "role": "button", "target": "blank" }).text("Get the recipe");
+                            var image = $("<img>").addClass("card-img-top").attr("src", recipeImage);
+                            cardBody.append(image);
+
+                            //   console.log(label);
+                            //   console.log(image);
+                            //   console.log(url);
                          
 
-                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").attr({"style":"18rem"})
-                            
-                          
-                            var cardBody =$("<div>").addClass("card-body");
-                            var label = $("<h5>").addClass("card-title").text(recipeName);
-                            var image = $("<p>").addClass("card-text").text(recipeImage);
-                            var url = $("<a>").addClass("btn brn-link").attr({"href":recipeURL,"role":"button", "target":"blank"}).text("Get the recipe");
-                        //   console.log(label);
-                        //   console.log(image);
-                        //   console.log(url);
-                          console.log(recipeName[i].label)
-                          
                             cardBody.append(label).append(image).append(url);
                             row.append(cardBody);
 
                             $("#searchSum").append(row);
+
+                            // can click upper right corner of card to close out 
+                            $('.close-icon').on('click', function () {
+                                $(this).closest('.card').fadeOut();
+                            })
                         }
                     });
-                    
+
 
                 });
             });
