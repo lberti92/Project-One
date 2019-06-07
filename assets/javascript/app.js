@@ -7,13 +7,16 @@ var geoAPI3 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 
 // var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
 
+$(document).ready(function () {
+    $('.cuisines').hide();
+});
+
 $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI3;
-
-
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI;
+    $(".cuisines").toggle();
 
     $.ajax({
         url: geoURL,
