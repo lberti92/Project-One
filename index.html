@@ -46,23 +46,25 @@
 			<div class="row" id=detail>
 			</div>
 
-		<form>
-			<label htmlFor="cuisine-location"></label>
-			<input list="locations" id="cuisine-location" name="cuisine-location" className="form-control"
-				placeholder="Pick your location" />
-			<datalist id="locations"> </datalist>
-			<button type="submit" id="submitLoc" className="btn btn-success btn-block mt-2">Search</button>
+			<form>
+				<label htmlFor="cuisine-location"></label>
+				<input list="locations" id="cuisine-location" name="cuisine-location" className="form-control"
+					placeholder="Pick your location" />
+				<datalist id="locations"> </datalist>
+				<button type="submit" id="submitLoc" className="btn btn-success btn-block mt-2">Search</button>
 
-			<label htmlFor="cuisine-choice"></label>
-			<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
-				placeholder="Choose a cuisine" />
-			<datalist id="cuisines"></datalist>
-			<button type="submit" id="submit" className="btn btn-success btn-block mt-2">Search</button>
+				<div class="cuisines">
+					<label htmlFor="cuisine-choice"></label>
+					<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
+						class="show" class="hide" placeholder="Choose a cuisine" />
+					<datalist id="cuisines"></datalist>
+					<button type="submit" id="submit" className="btn btn-success btn-block mt-2" class="show"
+						class="hide">Search</button>
+				</div>
 
+			</form>
 
-		</form>
-
-	</div>
+		</div>
 
 
 
