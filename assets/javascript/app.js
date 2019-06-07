@@ -29,9 +29,6 @@ $.ajax({
         // ZOMATO
         var zomatoKey = "5f7e180716b2eb861d47aa1baa40e686"
 
-        // // NOTE: you can only run the code below once you have the geocoded lat/lon from Google Geocoder...
-        // // for that reason, you'll likely run this code in the .then for the geocoder API call:
-
         // // api query link to grab all cuisine types based on location (lat/lon, in this case)
         var cuisinesQuery = "https://developers.zomato.com/api/v2.1/cuisines?lat=" + lat + "&lon=" + lon;
         console.log("cruisine lat " + lat);
@@ -85,15 +82,12 @@ $.ajax({
                 }).then(function (response) {
                     console.log(response);
 
-                    //create a var array
-                    // console.log(response.restaurants[0].restaurant.name);
-                    // console.log(response.restaurants[0].restaurant.url);
-                    // console.log(response.restaurants[0].restaurant.location.address);
-
-                   
+                                
                     for (var i = 0; i < response.restaurants.length; i++) {
-                 
-                        console.log(response.restaurants[i].restaurant.name);
+                       console.log(response.restaurants[i].restaurant.name);
+                       console.log(response.restaurants[i].restaurant.url);
+                       console.log(response.restaurants[i].restaurant.location.address);
+
         
                     };
 
