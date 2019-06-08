@@ -146,5 +146,4 @@ $("#submitLoc").on("click", function (event) {
         });
 });
 
-});
 
