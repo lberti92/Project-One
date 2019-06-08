@@ -6,7 +6,6 @@ var geoAPI3 = "AIzaSyCwUotoEzIyv1ZHQWPqiLJ4PjShrUMGgdA";
 var geoAPI4 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 // var address = $("#cuisine-location").val();
 
-// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
 
 $(document).ready(function () {
     $('.cuisines').hide();
@@ -16,7 +15,7 @@ $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI4;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -95,17 +94,12 @@ $("#submitLoc").on("click", function (event) {
                         // console.log(response.restaurants[0].restaurant.url);
                         // console.log(response.restaurants[0].restaurant.location.address);
 
-
                         for (var i = 0; i < response.restaurants.length; i++) {
                             var restName = response.restaurants[i].restaurant.name;
                             var restURL = response.restaurants[i].restaurant.url;
                             var restAddress = response.restaurants[i].restaurant.location.address;
                             console.log(response.restaurants[i].restaurant.name);
-
                         };
-                        // $(".cuisines").toggle();
-                        // $(".locations").toggle();
-
                     });
 
                     // edamam search result from selected cuisine tab limited to 5 recipes
@@ -161,6 +155,5 @@ $("#submitLoc").on("click", function (event) {
 
         });
 });
-
 
 
