@@ -2,15 +2,10 @@
 
 var geoAPI = "AIzaSyBr1UF29gLIRNBbxHQG3ElsfeB0RV_dufg";
 var geoAPI2 = "AIzaSyAoCyFHVjRHTcxhvoWxkgFC7G6fpCXn2-I";
-<<<<<<< HEAD
-var geoAPI3 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
-=======
 var geoAPI3= "AIzaSyCwUotoEzIyv1ZHQWPqiLJ4PjShrUMGgdA";
 var geoAPI4= "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
->>>>>>> f07d93a2a44904af63fc61af0ad94925e0eaeaa9
 // var address = $("#cuisine-location").val();
 
-// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
 
 $(document).ready(function () {
     $('.cuisines').hide();
@@ -20,7 +15,7 @@ $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI3;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -99,15 +94,12 @@ $("#submitLoc").on("click", function (event) {
                         // console.log(response.restaurants[0].restaurant.url);
                         // console.log(response.restaurants[0].restaurant.location.address);
 
-
                         for (var i = 0; i < response.restaurants.length; i++) {
                             var restName = response.restaurants[i].restaurant.name;
                             var restURL = response.restaurants[i].restaurant.url;
                             var restAddress = response.restaurants[i].restaurant.location.address;
                             console.log(response.restaurants[i].restaurant.name);
-
                         };
-
                     });
 
                     // edamam search result from selected cuisine tab limited to 5 recipes
@@ -120,59 +112,39 @@ $("#submitLoc").on("click", function (event) {
                     }).then(function (response) {
                         console.log(response);
                         for (var i = 0; i < response.hits.length; i++) {
-<<<<<<< HEAD
 
                             var recipeName = response.hits[i].recipe.label;
                             var recipeImage = response.hits[i].recipe.image;
                             var recipeURL = response.hits[i].recipe.url;
-=======
-            
-                            var recipeName = (response.hits[i].recipe.label);
-                            var recipeImage = (response.hits[i].recipe.image);
-                            var recipeURL = (response.hits[i].recipe.url);
->>>>>>> f07d93a2a44904af63fc61af0ad94925e0eaeaa9
 
                             console.log(recipeName);
                             console.log(recipeImage);
                             console.log(recipeURL);
-<<<<<<< HEAD
-                        // Capture Button Click
-                        $("#submit").on("click", function (event) {
-                            // prevent page from refreshing when form tries to submit itself
-                            event.preventDefault();
-                            
-                        });
-                    };
-=======
 
-                         
+                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").attr({ "style": "18rem" })
 
-                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").attr({"style":"18rem"})
-                            
-                          
-                            var cardBody =$("<div>").addClass("card-body");
+                            var cardBody = $("<div>").addClass("card-body");
                             var label = $("<h5>").addClass("card-title").text(recipeName);
                             var image = $("<p>").addClass("card-text").text(recipeImage);
-                            var url = $("<a>").addClass("btn brn-link").attr({"href":recipeURL,"role":"button", "target":"blank"}).text("Get the recipe");
-                        //   console.log(label);
-                        //   console.log(image);
-                        //   console.log(url);
-                          console.log(recipeName[i].label)
-                          
+                            var url = $("<a>").addClass("btn brn-link").attr({ "href": recipeURL, "role": "button", "target": "blank" }).text("Get the recipe");
+                            //   console.log(label);
+                            //   console.log(image);
+                            //   console.log(url);
+                            console.log(recipeName[i].label)
+
                             cardBody.append(label).append(image).append(url);
                             row.append(cardBody);
 
                             $("#searchSum").append(row);
                         }
                     });
-                    
->>>>>>> f07d93a2a44904af63fc61af0ad94925e0eaeaa9
+
 
                 });
             });
 
         });
-    });
+});
 
 });
 
