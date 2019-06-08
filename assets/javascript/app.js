@@ -8,6 +8,9 @@ var geoAPI4= "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 
 $(document).ready(function () {
     $('.cuisines').hide();
+    $(".brand-logo").on("click", function (event) {
+        location.reload();
+    });
 });
 
 $("#submitLoc").on("click", function (event) {
@@ -64,7 +67,6 @@ $("#submitLoc").on("click", function (event) {
                     // grab the currently selected cuisine in human speak
                     var selected = $("#cuisine-choice").val();
                     console.log("selected " + selected);
-
                     // user the human speak cuisine to find the special Zomato cuisine number
                     // (hint: you'll need this for the final Zomato query!)
                     // alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
@@ -119,6 +121,8 @@ $("#submitLoc").on("click", function (event) {
                             row.append(cardBody);
 
                             $("#searchSum").append(row);
+
+                            $("#searchAgain").html('<a class="waves-effect waves-light btn " href="index.html">Search Again</a>"');
 
                         };
                     });
