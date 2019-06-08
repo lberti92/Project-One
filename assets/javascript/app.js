@@ -9,14 +9,16 @@ var geoAPI4 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 
 $(document).ready(function () {
     $('.cuisines').hide();
-    // $("#searchRest").hide();
+    $(".brand-logo").on("click", function (event) {
+        location.reload();
+    });
 });
 
 $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI4;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -120,6 +122,8 @@ $("#submitLoc").on("click", function (event) {
                             row.append(cardBody);
 
                             $("#restaurants").append(row);
+
+                            $("#searchAgain").html('<a class="waves-effect waves-light btn " href="index.html">Search Again</a>"');
 
                         };
                     });
