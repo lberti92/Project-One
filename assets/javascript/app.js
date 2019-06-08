@@ -16,7 +16,7 @@ $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -100,7 +100,22 @@ $("#submitLoc").on("click", function (event) {
                             var restName = response.restaurants[i].restaurant.name;
                             var restURL = response.restaurants[i].restaurant.url;
                             var restAddress = response.restaurants[i].restaurant.location.address;
+
                             console.log(response.restaurants[i].restaurant.name);
+                            console.log(response.restaurants[i].restaurant.location.address);
+                           
+                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
+
+                            var cardBody = $("<div>").addClass("card-body");
+                            var label = $("<h5>").addClass("card-title").text(restName);
+                            var url = $("<a>").addClass("btn brn-link").attr({ "href": restURL, "role": "button", "target": "blank" }).text("Get the restaurant");
+                            // var addy = $("<h6>").addClass("card-title").attr("src", restAddress);
+
+                            
+                            cardBody.append(label).append(url).append(addy);
+                            row.append(cardBody);
+
+                            $("#searchSum").append(row);
 
                         };
                         // $(".cuisines").toggle();
@@ -126,6 +141,8 @@ $("#submitLoc").on("click", function (event) {
                             console.log(recipeName);
                             console.log(recipeImage);
                             console.log(recipeURL);
+
+                            
 
 
 
