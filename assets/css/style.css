@@ -18,3 +18,7 @@ body {
   .btn {
     display: inherit;
   }
+
+  .background2 {
+    background-image: url(../images/smaller\ plates.jpg)
+  }

@@ -62,9 +62,11 @@ $("#submitLoc").on("click", function (event) {
                 // on click of the submit button...
                 $("#submit").on("click", function (event) {
                     event.preventDefault();
+
                     // grab the currently selected cuisine in human speak
                     var selected = $("#cuisine-choice").val();
                     console.log("selected " + selected);
+
                     // user the human speak cuisine to find the special Zomato cuisine number
                     // (hint: you'll need this for the final Zomato query!)
                     // alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
@@ -102,7 +104,7 @@ $("#submitLoc").on("click", function (event) {
 
                             console.log(response.restaurants[i].restaurant.name);
                             console.log(response.restaurants[i].restaurant.location.address);
-                           
+
                             var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
 
                             var cardBody = $("<div>").addClass("card-body");
@@ -112,7 +114,7 @@ $("#submitLoc").on("click", function (event) {
                             var image = $("<img>").addClass("card-img-top").attr("src", restImage);
                             cardBody.append(image);
 
-                            
+
                             cardBody.append(label).append(image).append(addy).append(url);
                             row.append(cardBody);
 
@@ -140,7 +142,7 @@ $("#submitLoc").on("click", function (event) {
                             console.log(recipeImage);
                             console.log(recipeURL);
 
-                            
+
 
 
 
@@ -156,7 +158,7 @@ $("#submitLoc").on("click", function (event) {
                             //   console.log(label);
                             //   console.log(image);
                             //   console.log(url);
-                         
+
 
                             cardBody.append(label).append(image).append(url);
                             row.append(cardBody);
