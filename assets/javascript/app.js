@@ -71,7 +71,7 @@ $("#submitLoc").on("click", function (event) {
                     // restaurants or 2) search for recipes 
                     console.log("restaurant lat " + lat);
                     console.log("restaurant lng " + lon);
-                    console.log("restaurant cruisine " + selected);
+                    console.log("restaurant cuisine " + selected);
 
                     // All have been resolved (or rejected), do your thing
                     // After submit button has been clicked and we have received the "selected id" then 
