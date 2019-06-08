@@ -14,7 +14,7 @@ $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -87,28 +87,20 @@ $("#submitLoc").on("click", function (event) {
                         },
                     }).then(function (response) {
                         console.log(response);
-                        mytable = $('<table></table>').attr({ id: "basicTable",class:"table table-hover"});
+                        // mytable = $('<table></table>').attr({ id: "basicTable",class:"table table-hover"});
+
+                        //create a var array
+                        // console.log(response.restaurants[0].restaurant.name);
+                        // console.log(response.restaurants[0].restaurant.url);
+                        // console.log(response.restaurants[0].restaurant.location.address);
 
                         for (var i = 0; i < response.restaurants.length; i++) {
                             var restName = response.restaurants[i].restaurant.name;
                             var restURL = response.restaurants[i].restaurant.url;
                             var restAddress = response.restaurants[i].restaurant.location.address;
                             console.log(response.restaurants[i].restaurant.name);
-                            console.log(response.restaurants[i].restaurant.url);
-                            console.log(response.restaurants[i].restaurant.location.address);
-
-             
-                                var row = $("<div>").addClass("row justify-content-around col-4").attr({"style":"18rem"})
-                                // // var image = $("<img>").addClass("card-img-top").attr("src", recipeCards[i].image)
-                                row.append(response.restaurants[i].restaurant.name);
-                            
                         };
-                          
-                        });
-
-  
-
-               
+                    });
 
                     // edamam search result from selected cuisine tab limited to 5 recipes
                     var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&to=5&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
@@ -159,6 +151,5 @@ $("#submitLoc").on("click", function (event) {
 
         });
 });
-
 
 
