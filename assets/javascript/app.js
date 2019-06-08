@@ -6,7 +6,6 @@ var geoAPI3 = "AIzaSyCwUotoEzIyv1ZHQWPqiLJ4PjShrUMGgdA";
 var geoAPI4 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 // var address = $("#cuisine-location").val();
 
-// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
 
 $(document).ready(function () {
     $('.cuisines').hide();
@@ -95,11 +94,11 @@ $("#submitLoc").on("click", function (event) {
                         // console.log(response.restaurants[0].restaurant.url);
                         // console.log(response.restaurants[0].restaurant.location.address);
 
-
                         for (var i = 0; i < response.restaurants.length; i++) {
                             var restName = response.restaurants[i].restaurant.name;
                             var restURL = response.restaurants[i].restaurant.url;
                             var restAddress = response.restaurants[i].restaurant.location.address;
+                            var restImage = response.restaurants[i].restaurant.featured_image;
 
                             console.log(response.restaurants[i].restaurant.name);
                             console.log(response.restaurants[i].restaurant.location.address);
@@ -109,18 +108,17 @@ $("#submitLoc").on("click", function (event) {
                             var cardBody = $("<div>").addClass("card-body");
                             var label = $("<h5>").addClass("card-title").text(restName);
                             var url = $("<a>").addClass("btn brn-link").attr({ "href": restURL, "role": "button", "target": "blank" }).text("Get the restaurant");
-                            // var addy = $("<h6>").addClass("card-title").attr("src", restAddress);
+                            var addy = $("<h6>").addClass("card-title").text(restAddress);
+                            var image = $("<img>").addClass("card-img-top").attr("src", restImage);
+                            cardBody.append(image);
 
                             
-                            cardBody.append(label).append(url).append(addy);
+                            cardBody.append(label).append(image).append(addy).append(url);
                             row.append(cardBody);
 
                             $("#searchSum").append(row);
 
                         };
-                        // $(".cuisines").toggle();
-                        // $(".locations").toggle();
-
                     });
 
                     // edamam search result from selected cuisine tab limited to 5 recipes
@@ -178,6 +176,5 @@ $("#submitLoc").on("click", function (event) {
 
         });
 });
-
 
 
