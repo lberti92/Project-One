@@ -50,8 +50,11 @@
 
 			</div>
 
-			<div class="row" id=searchSum>
-				<div 
+			<div class="row" id=searchSum class= "card-columns">
+					<!-- <button type="button" class="close" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						  </button> -->
+				
 				<!--// row container for results summary views-->
 			</div>
 
@@ -63,6 +66,7 @@
 			</div>
 
 			<form>
+				<div class= "locations">
 				<label htmlFor="cuisine-location"></label>
 				<input list="locations" id="cuisine-location" name="cuisine-location" className="form-control"
 					placeholder="Where will you be dining?" /><i class="material-icons">location_on</i>
@@ -70,7 +74,8 @@
 
 				<button class="btn waves-effect waves-light" type="submit" id="submitLoc"
 					className="btn btn-success btn-block mt-2">Search</button>
-
+					</div>
+					
 				<div class="cuisines">
 					<label htmlFor="cuisine-choice"></label>
 					<input list="cuisines" id="cuisine-choice" name="cuisine-choice" className="form-control"
