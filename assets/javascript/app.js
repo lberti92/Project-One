@@ -14,7 +14,7 @@ $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI4;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -111,30 +111,9 @@ $("#submitLoc").on("click", function (event) {
                                 // cardBody.append(title).append(description).append(link)
                                 // card.append(cardBody)
                         };
+                        // $(".cuisines").toggle();
+                        // $(".locations").toggle();
 
-                        // for (var i = 0; i < response.restaurants.length; i++) {
-                        //     var row = $("<div>").addClass("row justify-content-around col-4").attr({"style":"18rem"})
-                        //     // var image = $("<img>").addClass("card-img-top").attr("src", recipeCards[i].image)
-                        //     row.append(restaurant.name);
-                          
-                        //     var cardBody=$("<div>").addClass("card-body")
-                        //     var title = $("<h5>").addClass("card-title").text(recipeCards[i].name)
-                        //     var description = $("<p>").addClass("card-text").text(recipeCards[i].description)
-                        //     var link = $("<a>").addClass("btn brn-link").attr({"href":recipeCards[i].link ,"role":"button", "target":"blank"}).text("Get the recipe")
-                          
-                          
-                        //     cardBody.append(title).append(description).append(link)
-                        //     card.append(cardBody)
-
-
-                                          //     <div class="row justify-content-around">
-                    //     <div class="col-4">
-                    //       One of two columns
-                    //     </div>
-                    //     <div class="col-4">
-                    //       One of two columns
-                    //     </div>
-                    //   </div>
                           
                         });
 
@@ -152,7 +131,7 @@ $("#submitLoc").on("click", function (event) {
                     }).then(function (response) {
                         console.log(response);
                         for (var i = 0; i < response.hits.length; i++) {
-            
+
                             var recipeName = (response.hits[i].recipe.label);
                             var recipeImage = (response.hits[i].recipe.image);
                             var recipeURL = (response.hits[i].recipe.url);
@@ -161,27 +140,30 @@ $("#submitLoc").on("click", function (event) {
                             console.log(recipeImage);
                             console.log(recipeURL);
 
-                         
+                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
 
-                            var row = $("<tr></tr>").addClass("justify-content-around col-4").addClass("card mb3").attr({"style":"18rem"})
-                            
-                          
-                            var cardBody =$("<div>").addClass("card-body");
+                            var cardBody = $("<div>").addClass("card-body");
                             var label = $("<h5>").addClass("card-title").text(recipeName);
-                            var image = $("<p>").addClass("card-text").text(recipeImage);
-                            var url = $("<a>").addClass("btn brn-link").attr({"href":recipeURL,"role":"button", "target":"blank"}).text("Get the recipe");
-                        //   console.log(label);
-                        //   console.log(image);
-                        //   console.log(url);
-                          console.log(recipeName[i].label)
-                          
+                            var url = $("<a>").addClass("btn brn-link").attr({ "href": recipeURL, "role": "button", "target": "blank" }).text("Get the recipe");
+                            var image = $("<img>").addClass("card-img-top").attr("src", recipeImage);
+                            cardBody.append(image);
+
+                            //   console.log(label);
+                            //   console.log(image);
+                            //   console.log(url);
+                         
                             cardBody.append(label).append(image).append(url);
                             row.append(cardBody);
 
                             $("#searchSum").append(row);
+
+                            // can click upper right corner of card to close out 
+                            $('.close-icon').on('click', function () {
+                                $(this).closest('.card').fadeOut();
+                            })
                         }
                     });
-                    
+
 
                 });
             });
