@@ -79,6 +79,7 @@ $("#submitLoc").on("click", function (event) {
                     console.log("restaurant lng " + lon);
                     console.log("restaurant cuisine " + selected);
 
+    
                     // All have been resolved (or rejected), do your thing
                     // After submit button has been clicked and we have received the "selected id" then 
                     //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
@@ -106,8 +107,8 @@ $("#submitLoc").on("click", function (event) {
 
                             console.log(response.restaurants[i].restaurant.name);
                             console.log(response.restaurants[i].restaurant.location.address);
-
-                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
+                           
+                            var row = $("<div>").addClass("row justify-content-around").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
 
                             var cardBody = $("<div>").addClass("card-body");
                             var label = $("<h5>").addClass("card-title").text(restName);
@@ -120,7 +121,7 @@ $("#submitLoc").on("click", function (event) {
                             cardBody.append(label).append(image).append(addy).append(url);
                             row.append(cardBody);
 
-                            $("#searchSum").append(row);
+                            $("#restaurants").append(row);
 
                             $("#searchAgain").html('<a class="waves-effect waves-light btn " href="index.html">Search Again</a>"');
 
@@ -150,7 +151,7 @@ $("#submitLoc").on("click", function (event) {
 
 
 
-                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
+                            var row = $("<div>").addClass("row justify-content-around").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" }).addClass("show");
 
 
                             var cardBody = $("<div>").addClass("card-body");
@@ -167,12 +168,13 @@ $("#submitLoc").on("click", function (event) {
                             cardBody.append(label).append(image).append(url);
                             row.append(cardBody);
 
-                            $("#searchSum").append(row);
+                            $("#recipes").append(row);
+        
 
                             // can click upper right corner of card to close out 
-                            $('.close-icon').on('click', function () {
-                                $(this).closest('.card').fadeOut();
-                            })
+                            // $('.close-icon').on('click', function () {
+                            //     $(this).closest('.card').fadeOut();
+                            // })
                         }
                     });
 
