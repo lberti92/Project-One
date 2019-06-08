@@ -9,6 +9,7 @@ var geoAPI4 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 
 $(document).ready(function () {
     $('.cuisines').hide();
+    // $("#searchRest").hide();
 });
 
 $("#submitLoc").on("click", function (event) {
@@ -65,6 +66,7 @@ $("#submitLoc").on("click", function (event) {
                     // grab the currently selected cuisine in human speak
                     var selected = $("#cuisine-choice").val();
                     console.log("selected " + selected);
+                    
                     // user the human speak cuisine to find the special Zomato cuisine number
                     // (hint: you'll need this for the final Zomato query!)
                     // alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
@@ -75,6 +77,7 @@ $("#submitLoc").on("click", function (event) {
                     console.log("restaurant lng " + lon);
                     console.log("restaurant cuisine " + selected);
 
+    
                     // All have been resolved (or rejected), do your thing
                     // After submit button has been clicked and we have received the "selected id" then 
                     //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
@@ -144,7 +147,7 @@ $("#submitLoc").on("click", function (event) {
 
 
 
-                            var row = $("<div>").addClass("row justify-content-around").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
+                            var row = $("<div>").addClass("row justify-content-around").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" }).addClass("show");
 
 
                             var cardBody = $("<div>").addClass("card-body");
@@ -162,11 +165,12 @@ $("#submitLoc").on("click", function (event) {
                             row.append(cardBody);
 
                             $("#recipes").append(row);
+        
 
                             // can click upper right corner of card to close out 
-                            $('.close-icon').on('click', function () {
-                                $(this).closest('.card').fadeOut();
-                            })
+                            // $('.close-icon').on('click', function () {
+                            //     $(this).closest('.card').fadeOut();
+                            // })
                         }
                     });
 
