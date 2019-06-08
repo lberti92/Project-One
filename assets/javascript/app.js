@@ -6,7 +6,7 @@ var geoAPI3 = "AIzaSyCwUotoEzIyv1ZHQWPqiLJ4PjShrUMGgdA";
 var geoAPI4 = "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 // var address = $("#cuisine-location").val();
 
-// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI3;
+// var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
 
 $(document).ready(function () {
     $('.cuisines').hide();
