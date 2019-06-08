@@ -98,7 +98,26 @@ $("#submitLoc").on("click", function (event) {
                             var restName = response.restaurants[i].restaurant.name;
                             var restURL = response.restaurants[i].restaurant.url;
                             var restAddress = response.restaurants[i].restaurant.location.address;
+                            var restImage = response.restaurants[i].restaurant.featured_image;
+
                             console.log(response.restaurants[i].restaurant.name);
+                            console.log(response.restaurants[i].restaurant.location.address);
+                           
+                            var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
+
+                            var cardBody = $("<div>").addClass("card-body");
+                            var label = $("<h5>").addClass("card-title").text(restName);
+                            var url = $("<a>").addClass("btn brn-link").attr({ "href": restURL, "role": "button", "target": "blank" }).text("Get the restaurant");
+                            var addy = $("<h6>").addClass("card-title").text(restAddress);
+                            var image = $("<img>").addClass("card-img-top").attr("src", restImage);
+                            cardBody.append(image);
+
+                            
+                            cardBody.append(label).append(image).append(addy).append(url);
+                            row.append(cardBody);
+
+                            $("#searchSum").append(row);
+
                         };
                     });
 
@@ -120,6 +139,8 @@ $("#submitLoc").on("click", function (event) {
                             console.log(recipeName);
                             console.log(recipeImage);
                             console.log(recipeURL);
+
+                            
 
 
 
