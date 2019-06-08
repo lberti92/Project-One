@@ -101,19 +101,8 @@ $("#submitLoc").on("click", function (event) {
                                 var row = $("<div>").addClass("row justify-content-around col-4").attr({"style":"18rem"})
                                 // // var image = $("<img>").addClass("card-img-top").attr("src", recipeCards[i].image)
                                 row.append(response.restaurants[i].restaurant.name);
-                              
-                                // var cardBody=$("<div>").addClass("card-body")
-                                // var title = $("<h5>").addClass("card-title").text(recipeCards[i].name)
-                                // var description = $("<p>").addClass("card-text").text(recipeCards[i].description)
-                                // var link = $("<a>").addClass("btn brn-link").attr({"href":recipeCards[i].link ,"role":"button", "target":"blank"}).text("Get the recipe")
-                              
-                              
-                                // cardBody.append(title).append(description).append(link)
-                                // card.append(cardBody)
+                            
                         };
-                        // $(".cuisines").toggle();
-                        // $(".locations").toggle();
-
                           
                         });
 
