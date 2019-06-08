@@ -14,7 +14,7 @@ $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -140,13 +140,10 @@ $("#submitLoc").on("click", function (event) {
                             console.log(recipeImage);
                             console.log(recipeURL);
 
-<<<<<<< HEAD
-=======
                             
 
 
 
->>>>>>> 426469cb969cdaa17e72e2fa134eff94e7ed3ce7
                             var row = $("<tr></tr>").addClass("row justify-content-around col-4").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
 
                             var cardBody = $("<div>").addClass("card-body");
