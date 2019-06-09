@@ -18,7 +18,7 @@ $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
     console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI4;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
     $(".cuisines").toggle();
 
     $.ajax({
