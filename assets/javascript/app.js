@@ -1,7 +1,7 @@
 
 
 var geoAPI = "AIzaSyBr1UF29gLIRNBbxHQG3ElsfeB0RV_dufg";
-var geoAPI2 = "AIzaSyAoCyFHVjRHTcxhvoWxkgFC7G6fpCXn2-I";
+var geoAPI2 = "AIzaSyDaePvaHI6g5YqGAG0NQzJifWDKjySEFO0";
 var geoAPI3= "AIzaSyCwUotoEzIyv1ZHQWPqiLJ4PjShrUMGgdA";
 var geoAPI4= "AIzaSyB5t0syv4UGzWvOzQYa6iTy1kAwFB_2n5Y";
 
@@ -16,8 +16,7 @@ $(document).ready(function () {
 $("#submitLoc").on("click", function (event) {
     event.preventDefault();
     var address = $("#cuisine-location").val();
-    console.log(address);
-    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI2;
+    var geoURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + geoAPI4;
     $(".cuisines").toggle();
 
     $.ajax({
@@ -26,8 +25,8 @@ $("#submitLoc").on("click", function (event) {
     })
         .then(function (response) {
             console.log(response)
-            console.log(response.results[0].geometry.location.lat);
-            console.log(response.results[0].geometry.location.lng);
+            // console.log(response.results[0].geometry.location.lat);
+            // console.log(response.results[0].geometry.location.lng);
 
             var lat = response.results[0].geometry.location.lat;
             var lon = response.results[0].geometry.location.lng;
@@ -40,8 +39,8 @@ $("#submitLoc").on("click", function (event) {
 
             // // api query link to grab all cuisine types based on location (lat/lon, in this case)
             var cuisinesQuery = "https://developers.zomato.com/api/v2.1/cuisines?lat=" + lat + "&lon=" + lon;
-            console.log("cruisine lat " + lat);
-            console.log("cruisine lng " + lon)
+            // console.log("cruisine lat " + lat);
+            // console.log("cruisine lng " + lon)
 
             $.ajax({
                 method: "GET",
@@ -52,7 +51,7 @@ $("#submitLoc").on("click", function (event) {
                 },
                 // after the cuisine data comes back from the API...
             }).then(function (response) {
-                console.log(response);
+                // console.log(response);
                 // loop through all the cuisines in the response; for each one, make an 'option' for the
                 // data-list (in the HTML above)... the text of the option is the cuisine, but there's
                 // also a 'data-cuisine-id' on each that is the number the Zomato API needs for the
@@ -70,18 +69,20 @@ $("#submitLoc").on("click", function (event) {
                     // user the human speak cuisine to find the special Zomato cuisine number
                     // (hint: you'll need this for the final Zomato query!)
                     // alert($("#cuisines [value='" + selected + "']").data('cuisine-id'));
+                    var id = $("#cuisines [value='" + selected + "']").data('cuisine-id');
+                    console.log (id);
                     // at this point in the game, you would now have both the lat/lon AND the cuisine id,
                     // which should be everything needed for the AJAX calls to either 1) search for 
                     // restaurants or 2) search for recipes 
-                    console.log("restaurant lat " + lat);
-                    console.log("restaurant lng " + lon);
-                    console.log("restaurant cuisine " + selected);
+                    // console.log("restaurant lat " + lat);
+                    // console.log("restaurant lng " + lon);
+                    // console.log("restaurant cuisine " + cuisune-id);
 
     
                     // All have been resolved (or rejected), do your thing
                     // After submit button has been clicked and we have received the "selected id" then 
                     //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
-                    var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + selected;
+                    var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=2&lat=" + lat + "&lon=" + lon + "&cuisines=" + id;
 
                     $.ajax({
                         url: restaurantQuery,
@@ -92,7 +93,6 @@ $("#submitLoc").on("click", function (event) {
                         },
                     }).then(function (response) {
                         console.log(response);
-                        // mytable = $('<table></table>').attr({ id: "basicTable",class:"table table-hover"});
 
                         //create a var array
                         // console.log(response.restaurants[0].restaurant.name);
@@ -105,9 +105,7 @@ $("#submitLoc").on("click", function (event) {
                             var restAddress = response.restaurants[i].restaurant.location.address;
                             var restImage = response.restaurants[i].restaurant.featured_image;
 
-                            console.log(response.restaurants[i].restaurant.name);
-                            console.log(response.restaurants[i].restaurant.location.address);
-                           
+                                              
                             var row = $("<div>").addClass("row justify-content-around").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" });
 
                             var cardBody = $("<div>").addClass("card-body");
@@ -129,26 +127,23 @@ $("#submitLoc").on("click", function (event) {
                     });
 
                     // edamam search result from selected cuisine tab limited to 5 recipes
-                    var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&to=5&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
+                    var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&to=2&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
 
                     // returns title (label), image and original recipe link (url)
                     $.ajax({
                         url: edamamQueryURL,
                         method: "GET"
                     }).then(function (response) {
-                        console.log(response);
+                        // console.log(response);
                         for (var i = 0; i < response.hits.length; i++) {
 
                             var recipeName = (response.hits[i].recipe.label);
                             var recipeImage = (response.hits[i].recipe.image);
                             var recipeURL = (response.hits[i].recipe.url);
 
-                            console.log(recipeName);
-                            console.log(recipeImage);
-                            console.log(recipeURL);
-
-
-
+                            // console.log(recipeName);
+                            // console.log(recipeImage);
+                            // console.log(recipeURL);
 
 
                             var row = $("<div>").addClass("row justify-content-around").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" }).addClass("show");
