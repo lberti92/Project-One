@@ -82,7 +82,7 @@ $("#submitLoc").on("click", function (event) {
                     // All have been resolved (or rejected), do your thing
                     // After submit button has been clicked and we have received the "selected id" then 
                     //Restaurants (Zomato) or Recipes (Endamam) will need to be displayed
-                    var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=2&lat=" + lat + "&lon=" + lon + "&cuisines=" + id;
+                    var restaurantQuery = "https://developers.zomato.com/api/v2.1/search?count=5&lat=" + lat + "&lon=" + lon + "&cuisines=" + id;
 
                     $.ajax({
                         url: restaurantQuery,
@@ -115,19 +115,17 @@ $("#submitLoc").on("click", function (event) {
                             var image = $("<img>").addClass("card-img-top").attr("src", restImage);
                             cardBody.append(image);
 
-
                             cardBody.append(label).append(image).append(addy).append(url);
                             row.append(cardBody);
 
                             $("#restaurants").append(row);
 
                             $("#searchAgain").html('<a class="waves-effect waves-light btn " href="index.html">Search Again</a>"');
-
                         };
                     });
 
                     // edamam search result from selected cuisine tab limited to 5 recipes
-                    var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&to=2&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
+                    var edamamQueryURL = "https://api.edamam.com/search?q=" + selected + "&to=5&app_id=e4946987&app_key=ee70be41f697b3bd702e4e02fc258d39";
 
                     // returns title (label), image and original recipe link (url)
                     $.ajax({
@@ -145,7 +143,6 @@ $("#submitLoc").on("click", function (event) {
                             // console.log(recipeImage);
                             // console.log(recipeURL);
 
-
                             var row = $("<div>").addClass("row justify-content-around").addClass("card").addClass("close-icon").addClass("card-deck").attr({ "style": "18rem" }).addClass("show");
 
                             var cardBody = $("<div>").addClass("card-body");
@@ -162,20 +159,17 @@ $("#submitLoc").on("click", function (event) {
                             row.append(cardBody);
 
                             $("#recipes").append(row);
+                            $("form").hide();
         
-
                             // can click upper right corner of card to close out 
                             // $('.close-icon').on('click', function () {
                             //     $(this).closest('.card').fadeOut();
                             // })
                         }
                     });
-
-
                 });
             });
-
-        });
+        });    
 });
 
 
